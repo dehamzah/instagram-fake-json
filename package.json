@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "json-server index.js --watch",
+    "start": "json-server index.js --port $PORT",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
