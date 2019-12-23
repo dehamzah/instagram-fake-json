@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "json-server index.js --port $PORT --host=instagram-fake-json.herokuapp.com",
+    "start": "json-server index.js --port $PORT --host=https://instagram-fake-json.herokuapp.com",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
