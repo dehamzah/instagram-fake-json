@@ -5,6 +5,40 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function getRandomMedias(maxMedias = 6) {
+  const mediaCategory = [
+    "abstract",
+    "animals",
+    "business",
+    "cats",
+    "city",
+    "food",
+    "nightlife",
+    "fashion",
+    "people",
+    "nature",
+    "sports",
+    "technics",
+    "transport"
+  ];
+  const medias = [];
+
+  for (let i = 0; i < randomIntFromInterval(1, maxMedias); i++) {
+    medias.push({
+      mediaUrl: faker.image.imageUrl(
+        800,
+        600,
+        randomIntFromInterval(0, mediaCategory.length - 1),
+        true,
+        true
+      ),
+      mediaType: "image"
+    });
+  }
+
+  return medias;
+}
+
 module.exports = () => {
   const TOTAL_USERS = 20;
   const TOTAL_POSTS = 50;
@@ -29,12 +63,7 @@ module.exports = () => {
     data.posts.push({
       id: i,
       user: data.users[randomIntFromInterval(0, TOTAL_USERS - 1)],
-      medias: [
-        {
-          mediaUrl: faker.image.imageUrl(800, 600, "food", true, true),
-          mediaType: "image"
-        }
-      ],
+      medias: getRandomMedias(),
       location: faker.address.city(),
       description: faker.lorem.sentences(1),
       isLoved: false,
@@ -49,16 +78,7 @@ module.exports = () => {
       id: i,
       isRead: false,
       user: data.users[randomIntFromInterval(0, TOTAL_USERS - 1)],
-      medias: [
-        {
-          mediaUrl: faker.image.imageUrl(800, 600, "people", true, true),
-          mediaType: "image"
-        },
-        {
-          mediaUrl: faker.image.imageUrl(800, 600, "people", true, true),
-          mediaType: "image"
-        }
-      ]
+      medias: getRandomMedias()
     });
   }
 
