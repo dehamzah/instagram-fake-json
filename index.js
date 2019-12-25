@@ -24,14 +24,10 @@ function getRandomMedias(maxMedias = 6) {
   const medias = [];
 
   for (let i = 0; i < randomIntFromInterval(1, maxMedias); i++) {
+    const category =
+      mediaCategory[randomIntFromInterval(0, mediaCategory.length - 1)];
     medias.push({
-      mediaUrl: faker.image.imageUrl(
-        800,
-        600,
-        randomIntFromInterval(0, mediaCategory.length - 1),
-        true,
-        true
-      ),
+      mediaUrl: faker.image.imageUrl(800, 600, category, true, true),
       mediaType: "image"
     });
   }
