@@ -61,7 +61,7 @@ module.exports = () => {
       user: data.users[randomIntFromInterval(0, TOTAL_USERS - 1)],
       medias: getRandomMedias(),
       location: faker.address.city(),
-      description: faker.lorem.sentences(1),
+      description: faker.lorem.paragraphs(1),
       isLoved: false,
       isSaved: false,
       createdAt: new Date().toISOString(),
